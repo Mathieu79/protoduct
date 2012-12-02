@@ -34,7 +34,7 @@ gem 'twitter', '4.2.0'
 gem 'markerb', :git => 'https://github.com/plataformatec/markerb.git'
 gem 'messagebus_ruby_api', '1.0.3'
 
-group :production do # we don't install these on travis to speed up test runs
+#group :production do # we don't install these on travis to speed up test runs
   gem 'rails_admin', '0.2.0'
   gem 'fastercsv', '1.5.5', :require => false
   gem 'rack-ssl', '1.3.2', :require => 'rack/ssl'
@@ -44,7 +44,7 @@ group :production do # we don't install these on travis to speed up test runs
   gem 'rack-google-analytics', '0.11.0', :require => 'rack/google-analytics'
   gem 'rack-piwik', '0.1.3', :require => 'rack/piwik', :require => false
   
-end
+#end
 
 
 # database
@@ -52,7 +52,7 @@ end
 gem "activerecord-import", "0.2.11"
 gem 'foreigner', '1.2.1'
 gem 'mysql2', '0.3.11' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
-gem 'pg', '0.14.1' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
+gem 'pg', '0.14.1'# if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 
 # file uploading
