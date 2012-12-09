@@ -13,7 +13,7 @@
 
     %meta{:name => "HandheldFriendly", :content => "True"}
     %meta{:name => "MobileOptimized", :content => "320"}
-    %meta{:name => "viewport", :content => "initial-scale=1, maximum-scale=1"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
 
     %link{:rel => 'shortcut icon', :href => "#{image_path('favicon.png')}" }
     %link{:rel => 'apple-touch-icon', :href => "#{image_path('apple-touch-icon.png')}"}
@@ -26,7 +26,7 @@
       = page_title yield(:page_title)
 
     = include_base_css_framework(:bootstrap)
-    = stylesheet_link_tag :default, 'new-templates', :media => 'all'
+    = #stylesheet_link_tag :default, 'new-templates', :media => 'all'
 
     - if rtl?
       = stylesheet_link_tag :rtl, :media => 'all'
@@ -57,8 +57,14 @@
 
     = include_gon(:camel_case => true, :namespace => :preloads)
 
-  %body
+  %body.cms-index-index.cms-home
     = flash_messages
+    %noscript
+      %aside.grid.global-notice
+        %mard='JavaScript seems to be disabled in your browser.'
+        %br
+        %small.expressive='You must have JavaScript enabled in your browser to utilize the functionality of this website.'
+
     #container
     = yield
 
