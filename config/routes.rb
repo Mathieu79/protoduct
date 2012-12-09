@@ -160,8 +160,12 @@ Diaspora::Application.routes.draw do
       get :tag_index
     end
   end
+  get '/u/self' => 'pro_my#show'
   get '/u/:username' => 'people#show', :as => 'user_profile'
   get '/u/:username/profile_photo' => 'users#user_photo'
+
+  get '/proto/:id' => 'pro_proto#show'
+
 
 
   # Federation
