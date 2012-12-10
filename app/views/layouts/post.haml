@@ -13,7 +13,7 @@
 
     %meta{:name => "HandheldFriendly", :content => "True"}
     %meta{:name => "MobileOptimized", :content => "320"}
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %meta{:name => "viewport", :content => "initial-scale=1, maximum-scale=1"}
 
     %link{:rel => 'shortcut icon', :href => "#{image_path('favicon.png')}" }
     %link{:rel => 'apple-touch-icon', :href => "#{image_path('apple-touch-icon.png')}"}
@@ -26,7 +26,7 @@
       = page_title yield(:page_title)
 
     = include_base_css_framework(:bootstrap)
-    = #stylesheet_link_tag :default, 'new-templates', :media => 'all'
+    = stylesheet_link_tag :default, 'new-templates', :media => 'all'
 
     - if rtl?
       = stylesheet_link_tag :rtl, :media => 'all'
@@ -41,8 +41,8 @@
     = set_current_user_in_javascript
 
     - unless @landing_page
-      =# javascript_include_tag :main, :templates
-      =# load_javascript_locales
+      = javascript_include_tag :main, :templates
+      = load_javascript_locales
 
     = set_asset_host
     = translation_missing_warnings
@@ -53,60 +53,14 @@
       = og_page_specific_tags(@post)
 
     = yield(:head)
-
-    =stylesheet_link_tag 'wb.base', :media => 'all'
-    =javascript_include_tag 'plugin'
-    =javascript_include_tag 'jq.wb.fn.min'
-    =javascript_include_tag 'jq.wb.run.min'
-    =javascript_include_tag 'wb.mage.product.min'
-
     = csrf_meta_tag
 
     = include_gon(:camel_case => true, :namespace => :preloads)
 
-  %body.cms-index-index.cms-home
+  %body
     = flash_messages
-    %noscript
-      %aside.grid.global-notice
-        %mard='JavaScript seems to be disabled in your browser.'
-        %br
-        %small.expressive='You must have JavaScript enabled in your browser to utilize the functionality of this website.'
-
-
-    .container
-      %header#header{:itemscope => "", :itemtype => "http://schema.org/Store"}
-        %hgroup.link-group
-          %h1='原物'
-          %h3{:itemprop => 'name'}
-            %a{:href => 'http://makr.com/', :itemprop => 'url'}='Protoduct'
-        %hgroup#site-description.span3
-          %h1#site-title='PROTO TO PRODUCT'
-          %H2#site-subdescription='Design Club and Shops ONLY with 3D Prints'
-
-      %nav#menu-top
-        %ul#drawer-menu.menu-items
-          %li.menu-item
-            %a{:href => '#'}
-              %span.level-top='首页'
-          %li.menu-item
-            %a{:href => '#'}
-              %span.level-top='我的原物'
-          %li.menu-item
-            %a{:href => '#'}
-              %span.level-top='设计师'
-          %li.menu-item.parent
-            %span.level-top='服务'
-            %dl#mini-login.drawer
-              %dt.drawer-title='Sign in or Register for an Account'
-              %dd.drawer-content
-
-          %li.menu-item.parent.mini-cart-button
-            %span.level-top='BLOG'
-            %span#cart-status
-      = yield
-      %footer#footer
-        %p='Copyright 2012 Protoduct. No Animals were harmed in the making.'
-        %p='Proudly powered by Diaspora*'
+    #container
+    = yield
 
 
     = include_chartbeat

@@ -1,5 +1,5 @@
 class ProProtoController < ApplicationController
-	layout 'post'
+	layout 'pro_post'
 
 	def show
 	end

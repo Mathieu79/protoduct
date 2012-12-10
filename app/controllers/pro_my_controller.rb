@@ -1,5 +1,5 @@
 class ProMyController < ApplicationController
-	layout 'post'
+	layout 'pro_post'
 
 	def show
 	end

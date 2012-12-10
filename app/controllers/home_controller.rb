@@ -4,6 +4,7 @@
 
 class HomeController < ApplicationController
   def show
+    @new_protos = Photo.all(:limit => 5)
     if user_signed_in?
       redirect_to stream_path
     elsif is_mobile_device?
