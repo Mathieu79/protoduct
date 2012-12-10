@@ -26,9 +26,9 @@ class UnprocessedImage < CarrierWave::Uploader::Base
     end
   end
 
-  version :thumb_small
-  version :thumb_medium
-  version :thumb_large
+  version :pro70
+  version :pro162
+  version :pro610
   version :scaled_full do
     process :get_version_dimensions 
   end

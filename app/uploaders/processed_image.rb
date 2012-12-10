@@ -16,7 +16,7 @@ class ProcessedImage < CarrierWave::Uploader::Base
   def filename
     model.random_string + File.extname(@filename) if @filename
   end
-
+=begin
   version :thumb_small do
     process :resize_to_fill => [50,50]
     process :strip
@@ -29,10 +29,26 @@ class ProcessedImage < CarrierWave::Uploader::Base
     process :resize_to_limit => [300,300]
     process :strip
   end
+=end
   version :scaled_full do
     process :resize_to_limit => [700,700]
     process :strip
   end
+
+  version :pro70 do
+    process :resize_to_fill => [70,70]
+    process :strip
+  end
+
+  version :pro162 do
+    process :resize_to_fill => [162,162]
+    process :strip
+  end
+
+  version :pro610 do
+    process :resize_to_fill => [610,610]
+    process :strip
+  end   
 
   def strip
     manipulate! do |img|
