@@ -86,10 +86,10 @@
       %nav#menu-top
         %ul#drawer-menu.menu-items
           %li.menu-item
-            %a{:href => '#'}
+            %a{:href => '/'}
               %span.level-top='首页'
           %li.menu-item
-            %a{:href => '#'}
+            %a{:href => user_signed_in? ? my_page_path : user_session_path}
               %span.level-top='我的原物'
           %li.menu-item
             %a{:href => '#'}

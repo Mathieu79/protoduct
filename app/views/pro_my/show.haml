@@ -3,7 +3,7 @@
     .avatar.span2
       %img{:src => "/assets/user/default.png"}
     #userinfo.span2
-      %span='欢迎：Fred Xu'
+      %span="欢迎：#{current_user.username}"
       %span='积分：1000'
 
 %section#mywish-container

@@ -1,6 +1,8 @@
 class ProProtoController < ApplicationController
-	layout 'pro_post'
+  layout 'pro_post'
 
-	def show
-	end
+  def show
+    @protos = StatusMessage.find(params[:id]).photos
+    render :show
+  end
 end

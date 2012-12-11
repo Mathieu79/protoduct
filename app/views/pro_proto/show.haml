@@ -4,17 +4,14 @@
 
   #product-media
     %figure.slides_container
-      %a{:href => '#'}
-        %img.image{:src => "http://makr.com/media/catalog/product/cache/1/thumbnail/918x918/8d6882b137b3069e8cea9e13e57aa14a/s/c/scout-seattle-single-blade-lock-back-knife-bone-stainless-steel-01_1.jpg.pagespeed.ce.NTnGaZihUr.jpg", 'data-order' => "image-1", :alt => "Single Blade Lock-back Knife Bone Stainless Steel", :itemprop => 'image', :width => 610, :height => 610}
-      %a{:href => '#'}
-        %img.image{:src => "http://makr.com/media/catalog/product/cache/1/thumbnail/918x918/8d6882b137b3069e8cea9e13e57aa14a/s/c/scout-seattle-single-blade-lock-back-knife-bone-stainless-steel-03_1.jpg.pagespeed.ce.nHs2pzgouS.jpg", 'data-order' => "image-2", :alt => "Single Blade Lock-back Knife Bone Stainless Steel", :itemprop => 'image', :width => 610, :height => 610}       
+      -@protos.each do |pro|
+        %a{:href => '#'}
+          %img.image{:src => pro.url(:pro610), 'data-order' => "image-#{pro.id}", :alt => "Single Blade Lock-back Knife Bone Stainless Steel", :itemprop => 'image', :width => 610, :height => 610}       
     %ul.more-views.pagination
-      %li.image-1{'data-order' => 'image-1'}
-        %a{:href => '#'}
-          %img.image{:src => "http://makr.com/media/catalog/product/cache/1/thumbnail/108x108/8d6882b137b3069e8cea9e13e57aa14a/s/c/scout-seattle-single-blade-lock-back-knife-bone-stainless-steel-01_1.jpg.pagespeed.ce.c3Z1Wi_hLX.jpg", 'data-order' => 'image-5', :alt => "Single Blade Lock-back Knife Bone Stainless Steel", :width => 70, :height => 70}
-      %li.image-2{'data-order' => 'image-2'}
-        %a{:href => '#'}
-          %img.image{:src => "http://makr.com/media/catalog/product/cache/1/thumbnail/108x108/8d6882b137b3069e8cea9e13e57aa14a/s/c/scout-seattle-single-blade-lock-back-knife-bone-stainless-steel-03_1.jpg.pagespeed.ce.oWicqotbdr.jpg", 'data-order' => 'image-5', :alt => "Single Blade Lock-back Knife Bone Stainless Steel", :width => 70, :height => 70}
+      -@protos.each do |pro|
+        %li{'data-order' => "image-#{pro.id}", :class => "image-#{pro.id}"}
+          %a{:href => '#'}
+            %img.image{:src => pro.url(:pro70), 'data-order' => "image-#{pro.id}", :alt => "Single Blade Lock-back Knife Bone Stainless Steel", :width => 70, :height => 70}
   #product-overview
     %header
       %h1

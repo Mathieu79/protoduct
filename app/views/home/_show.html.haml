@@ -37,7 +37,7 @@
         %img.thumbnail{:src => n.url(:pro162), :width => 162, :height => 162}
         .row
           %span.close{:title => 'Close'}='&times;'
-          %a.figure{:href => "http://makr.com/scout/scout-seattle-traveler-boot-natural-horween-chromexcel", :title => "View Details", :rel => 'bookmark'}
+          %a.figure{:href => proto_show_path(:id => n.status_message.id), :title => "View Details", :rel => 'bookmark'}
             %img.photo-401{:src => n.url(:pro610), :alt => "Traveler Boot - Natural Horween® Chromexcel®", :width => 612, :height => 612}
           %header
             %h1
@@ -52,7 +52,7 @@
             .price-box.regular-price.final-price
               %span.currency='$'
               %span.price='593.00'
-            %a.faux-button{:href => "http://makr.com/scout/scout-seattle-traveler-boot-natural-horween-chromexcel", :rel => 'bookmark'}='View Details'
+            %a.faux-button{:href => proto_show_path(:id => n.status_message.id), :rel => 'bookmark'}='View Details'
 
 %section#catalog-container
   %header.shop-title
@@ -81,12 +81,13 @@
 
   #products-container.product-list.primary
     -for i in 1..10 do
+      -pho = Photo.last
       %article#farm-ruck-sack-charcoal.product.catalog-entry.gray.canvas.leather.metal.bags{'data-group' => 1}
-        %img.thumbnail{:src => Photo.last.url(:pro162), :alt => "Farm Ruck Sack - Charcoal Canvas and Natural HF", :title => "Farm Ruck Sack - Charcoal Canvas and Natural HF", :width => 162, :height => 162}
+        %img.thumbnail{:src => pho.url(:pro162), :alt => "Farm Ruck Sack - Charcoal Canvas and Natural HF", :title => "Farm Ruck Sack - Charcoal Canvas and Natural HF", :width => 162, :height => 162}
         .row.product-detail-info-X6927-CHR-MAK
           %span.close{:title => 'Close'}='&times;'
-          %a.figure{:href =>"http://makr.com/farm-ruck-sack-charcoal", :title => "View Details", :rel => 'bookmark'}
-            %img.photo-361{:src => "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAA1JREFUeNoBAgD9", 'data-original' => "http://makr.com/media/catalog/product/cache/1/small_image/918x918/8d6882b137b3069e8cea9e13e57aa14a/f/a/farmruck_charcoal_fr_1.jpg", :alt => "Farm Ruck Sack - Charcoal Canvas and Natural HF", :width => 612, :height => 612}
+          %a.figure{:href =>proto_show_path(:id => pho.status_message.id), :title => "View Details", :rel => 'bookmark'}
+            %img.photo-361{:src => pho.url(:pro610), 'data-original' => "http://makr.com/media/catalog/product/cache/1/small_image/918x918/8d6882b137b3069e8cea9e13e57aa14a/f/a/farmruck_charcoal_fr_1.jpg", :alt => "Farm Ruck Sack - Charcoal Canvas and Natural HF", :width => 612, :height => 612}
           %header
             %h1
               %a{:href => "http://makr.com/farm-ruck-sack-charcoal", :title => "View Details", :rel => "bookmark"}='Farm Ruck Sack'
@@ -99,7 +100,7 @@
             .price-box.regular-price.final-price
               %span.currency='$'
               %span.price='160.00'
-            %a.faux-button{:href => "http://makr.com/farm-ruck-sack-charcoal", :rel => 'bookmark'}='View Details'
+            %a.faux-button{:href => proto_show_path(:id => pho.status_message.id), :rel => 'bookmark'}='View Details'
     %hr.split{'data-group' => '31'}
 
 

@@ -4,9 +4,10 @@
 
 class HomeController < ApplicationController
   def show
-    @new_protos = Photo.all(:limit => 5)
+    @new_protos = Photo.order("created_at DESC")[0..5]
     if user_signed_in?
-      redirect_to stream_path
+      #redirect_to stream_path
+      render :show, :layout => 'pro_post'
     elsif is_mobile_device?
       unless(File.exist?(Rails.root.join('app', 'views', 'home', '_show.mobile.erb')))
         redirect_to user_session_path
