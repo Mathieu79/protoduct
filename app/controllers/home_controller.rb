@@ -14,7 +14,7 @@ class HomeController < ApplicationController
         render :show, :layout => 'post'
       end
     else
-      render :show, :layout => 'post'
+      render :show, :layout => 'pro_post'
     end
   end
 
