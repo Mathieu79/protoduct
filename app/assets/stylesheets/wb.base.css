@@ -1696,7 +1696,7 @@ height:0;
 width:100%;
 background:#fff;
 overflow:hidden;
-margin:0;
+margin:20px 0 0 10px;
 padding:0;
 }
 
@@ -1736,6 +1736,7 @@ clear:both;
 
 .product-list .product .row
 .figure {
+margin-top:10px;
 float:left;
 display:inline-block;
 margin-left:9px;
@@ -3733,9 +3734,13 @@ float:left;
 clear:both;
 }
 
-.product-list .product:hover,#checkoutSteps
+#checkoutSteps
 li.active {
 background:#fff;
+}
+
+.product-list img.thumbnail:hover{
+	background:#fff;
 }
 
 #catalog-container #catalog-navigation,#catalog-container
@@ -3928,4 +3933,8 @@ body {
 
 .icon-red {
 	background-image: url(/assets/img/glyphicons-halflings-red.png);
+}
+
+.product-list img.thumbnail{
+	margin-bottom:10px;
 }
