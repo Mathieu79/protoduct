@@ -319,6 +319,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def likes
+    Like.where(:author_id => id).map{|x| x.target_type.constantize.find(x.target_id)}
+  end
+
   ######### Mailer #######################
   def mail(job, *args)
     pref = job.to_s.gsub('Jobs::Mail::', '').underscore

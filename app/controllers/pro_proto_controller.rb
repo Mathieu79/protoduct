@@ -2,7 +2,10 @@ class ProProtoController < ApplicationController
   layout 'pro_post'
 
   def show
-    @protos = StatusMessage.find(params[:id]).photos
+    @proto = StatusMessage.find(params[:id])
+    @pics = @proto.photos
+
+    @like_id = current_user.like_for(@proto).blank? ? nil : current_user.like_for(@proto).id
     render :show
   end
 end

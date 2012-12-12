@@ -4,11 +4,11 @@
 
   #product-media
     %figure.slides_container
-      -@protos.each do |pro|
+      -@pics.each do |pro|
         %a{:href => '#'}
           %img.image{:src => pro.url(:pro610), 'data-order' => "image-#{pro.id}", :alt => "Single Blade Lock-back Knife Bone Stainless Steel", :itemprop => 'image', :width => 610, :height => 610}       
     %ul.more-views.pagination
-      -@protos.each do |pro|
+      -@pics.each do |pro|
         %li{'data-order' => "image-#{pro.id}", :class => "image-#{pro.id}"}
           %a{:href => '#'}
             %img.image{:src => pro.url(:pro70), 'data-order' => "image-#{pro.id}", :alt => "Single Blade Lock-back Knife Bone Stainless Steel", :width => 70, :height => 70}
@@ -38,6 +38,12 @@
             %link{:itemprop => "availability", :href => "http://schema.org/InStock"}='In Stock'
           .add-to-cart
             %button#add-to-cart.button-em{:type => 'button', :onclick => "productAddToCartForm.submit(this)"}='Add to Bag'
+
+      %a.label{:href => '#', :rel => 'auth-required', 'like-id' => @like_id}
+        -if @like_id
+          %i.icon-heart.icon-red
+        -else
+          %i.icon-heart.icon-white
 %aside#upsell-products
   %ul
     %li.product.link-group
@@ -65,7 +71,7 @@
   $(function(){
     $('#product-media').slides({
         preload: true,
-        preloadImage: 'img/loading.gif',
+        preloadImage: '/assets/ajax-loader.gif',
         effect: 'slide, fade',
         crossfade: true,
         slideSpeed: 350,
@@ -75,6 +81,26 @@
     })
   });
 
+:javascript
+  $(function(){
+    var $icon = $('a.label','footer');
+    $icon.click(function(){
+      if($icon.attr('like-id') == '' || $icon.attr('like-id') == undefined){
+        $.post("/posts/#{@proto.id}/likes.json").success(function(data){
+          $icon.attr('like-id', data.id);
+          $('i', $icon).removeClass('icon-white');
+          $('i', $icon).addClass('icon-red');
+        });
+      }else {
+        $.post("/posts/#{@proto.id}/likes/"+ $icon.attr('like-id') +".json", {'_method': 'delete'}).success(function(data){
+          $icon.attr('like-id', '');
+          $('i', $icon).removeClass('icon-red');
+          $('i', $icon).addClass('icon-white');
+        });
+      }
+      return false;
+    });
+  });
 .test
 
 

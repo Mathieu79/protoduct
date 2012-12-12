@@ -11,16 +11,16 @@
     %h4='我的收藏'
 
   #shop-in-shop.product-list.primary
-    -for i in 1..5 do
+    -@my_likes.each do |proto|
       %article#scout-seattle-traveler-boot-natural-horween-chromexcel.product.catalog-entry.brown.natural.leather.accessories{"data-group" => "shop-1"}
-        %img.thumbnail{:src => "http://makr.com/media/catalog/product/cache/1/thumbnail/243x243/8d6882b137b3069e8cea9e13e57aa14a/s/c/scout-seattle-traveler-boot-natural-horween-chromexcel-01.jpg.pagespeed.ce.CIhHmA69mW.jpg", :alt => "Traveler Boot - Natural Horween® Chromexcel®", :title => "Traveler Boot - Natural Horween® Chromexcel®", :width => 162, :height => 162}
+        %img.thumbnail{:src => proto.photos.first.url(:pro162), :alt => "Traveler Boot - Natural Horween® Chromexcel®", :title => "Traveler Boot - Natural Horween® Chromexcel®", :width => 162, :height => 162}
         .row
           %span.close{:title => 'Close'}='&times;'
-          %a.figure{:href => "http://makr.com/scout/scout-seattle-traveler-boot-natural-horween-chromexcel", :title => "View Details", :rel => 'bookmark'}
-            %img.photo-401{:src => "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAA1JREFUeNoBAgD9", "data-original" => "http://makr.com/media/catalog/product/cache/1/small_image/918x918/8d6882b137b3069e8cea9e13e57aa14a/s/c/scout-seattle-traveler-boot-natural-horween-chromexcel-02.jpg", :alt => "Traveler Boot - Natural Horween® Chromexcel®", :width => 612, :height => 612}
+          %a.figure{:href => proto_show_path(:id => proto.id), :title => "View Details", :rel => 'bookmark'}
+            %img.photo-401{:src => proto.photos.first.url(:pro610), "data-original" => proto.photos.first.url(:pro610), :alt => "Traveler Boot - Natural Horween® Chromexcel®", :width => 612, :height => 612}
           %header
             %h1
-              %a{:href => "http://makr.com/scout/scout-seattle-traveler-boot-natural-horween-chromexcel", :title => "View Details", :rel => 'bookmark'}='Traveler Boot'
+              %a{:href => proto_show_path(:id => proto.id), :title => "View Details", :rel => 'bookmark'}='Traveler Boot'
             %h2='Natural Horween® Chromexcel®'
             %p.description='Moc-toe construction. Natural Horween® Chromexcel® outer. Horsehide insole. Deerskin lining. Vibram® Gumlite® sole. Padded upper. Antique brass D-rings. Toe plug water barrier. Waxed cotton laces from UK. Hand-sewn in Maine by Oak Street Bootmakers.'
             .dimensions
@@ -31,7 +31,7 @@
             .price-box.regular-price.final-price
               %span.currency='$'
               %span.price='593.00'
-            %a.faux-button{:href => "http://makr.com/scout/scout-seattle-traveler-boot-natural-horween-chromexcel", :rel => 'bookmark'}='View Details'
+            %a.faux-button{:href => proto_show_path(:id => proto.id), :rel => 'bookmark'}='View Details'
     %hr.split{'data-group' => 'shop-1'}
 
 %section#myorder-container

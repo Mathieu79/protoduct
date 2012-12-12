@@ -3925,3 +3925,7 @@ body {
 	background-image: url(/assets/texture/light-bg.png);
 	padding: none;
 }
+
+.icon-red {
+	background-image: url(/assets/img/glyphicons-halflings-red.png);
+}
