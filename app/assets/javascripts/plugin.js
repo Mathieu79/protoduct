@@ -229,7 +229,7 @@ http://www.gnu.org/licenses/gpl.html
             }
             function stop() { clearInterval(elem.data('interval')); }
             function pause() { if (option.pause) { clearTimeout(elem.data('pause')); clearInterval(elem.data('interval')); pauseTimeout = setTimeout(function () { clearTimeout(elem.data('pause')); playInterval = setInterval(function () { animate("next", effect); }, option.play); elem.data('interval', playInterval); }, option.pause); elem.data('pause', pauseTimeout); } else { stop(); } }
-            if (total < 2) { return; }
+            if (total < 1) { return; }
             if (start < 0) { start = 0; }
             if (start > total) { start = total - 1; }
             if (option.start) { current = start; }

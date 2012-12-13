@@ -45,8 +45,8 @@ class ProcessedImage < CarrierWave::Uploader::Base
     process :strip
   end
 
-  version :pro610 do
-    process :resize_to_fill => [610,610]
+  version :pro512 do
+    process :resize_to_fill => [512,512]
     process :strip
   end   
 
