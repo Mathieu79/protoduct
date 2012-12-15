@@ -5,7 +5,9 @@ class ProProtoController < ApplicationController
     @proto = StatusMessage.find(params[:id])
     @pics = @proto.photos
 
-    @like_id = current_user.like_for(@proto).blank? ? nil : current_user.like_for(@proto).id
+    if !current_user.nil?
+    	@like_id = current_user.like_for(@proto).blank? ? nil : current_user.like_for(@proto).id
+    end
     render :show
   end
 end
