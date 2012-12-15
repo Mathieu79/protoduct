@@ -32,7 +32,7 @@
     %h4='新品 | New Arrival'
 
   #shop-in-shop.product-list.primary
-    -@new_protos.each do |n|
+    -@new_protos.each_with_index do |n, index|
       %article#scout-seattle-traveler-boot-natural-horween-chromexcel.product.catalog-entry.brown.natural.leather.accessories{"data-group" => "shop-1"}
         %img.thumbnail{:src => n.url(:pro162), :width => 162, :height => 162}
         .row
@@ -54,7 +54,8 @@
               %span.currency='$'
               %span.price='593.00'
             %a.faux-button{:href => proto_show_path(:id => n.status_message.id), :rel => 'bookmark'}='View Details'
-    %hr.split{'data-group' => 'shop-1'}
+      -if ((index + 1) % 5) == 0
+        %hr.split{'data-group' => 'shop-1'}
 
 %section#catalog-container
   %header.shop-title

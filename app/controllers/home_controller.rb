@@ -4,7 +4,7 @@
 
 class HomeController < ApplicationController
   def show
-    @new_protos = Photo.order("created_at DESC")[0..5]
+    @new_protos = Photo.order("created_at DESC")[0..4]
     if user_signed_in?
       #redirect_to stream_path
       render :show, :layout => 'pro_post'
