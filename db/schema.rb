@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120909053122) do
+ActiveRecord::Schema.define(:version => 20121217131329) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -204,7 +204,7 @@ ActiveRecord::Schema.define(:version => 20120909053122) do
     t.text   "data",                 :null => false
   end
 
-  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
+  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url"
 
   create_table "participations", :force => true do |t|
     t.string   "guid"
@@ -307,6 +307,14 @@ ActiveRecord::Schema.define(:version => 20120909053122) do
   add_index "posts", ["status_message_guid", "pending"], :name => "index_posts_on_status_message_guid_and_pending"
   add_index "posts", ["status_message_guid"], :name => "index_posts_on_status_message_guid"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
+
+  create_table "pro_site_infos", :force => true do |t|
+    t.string   "show_type"
+    t.text     "description"
+    t.string   "photo_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "profiles", :force => true do |t|
     t.string   "diaspora_handle"
